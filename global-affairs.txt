@@ -1,0 +1,27 @@
+{
+	"global affairs" : [
+		[
+      "ECON108 OR ",
+      "ECON110 OR ",
+      "ECON115"
+		],
+		[
+      "ECON111 OR ",
+      "ECON116"
+		],
+		[
+      "GLBL225"
+      	],
+      	[
+      "GLBL275"
+		],
+		[
+      "GLBL121"
+		],
+		[
+      "ECON121 OR ",
+      "ECON125 OR ",
+      "GLBL 180"
+		]
+	]	
+}

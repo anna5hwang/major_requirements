@@ -1,0 +1,224 @@
+///////////////////////////////////////////////////////////
+//  CPSC-112 CLASS PROJECT - REPORT.txt
+//
+//  Team Member NetIDs: jyz22, bbl24, ahh37, ms3358
+//  TF Leaders: Yuxuan Ke, John Amadeo
+//
+//  Project Title: "Get Reqs": Yale College Major Requirements Helper
+//
+//  Note: Please submit the following:
+//    (1) REPORT.txt, 
+//    (2) All that is needed to compile and run your program 
+//        (a zip file of the project directory can be a good 
+//        approach), and  
+//    (3) README.txt on how to execute your program. If it is
+//      deployed on the Web, please provide a pointer. 
+//
+//    It is sufficient if one team member submits.
+///////////////////////////////////////////////////////////
+
+===========================================================
+== HIGH-LEVEL DESCRIPTION                                ==
+==                                                       ==
+== A few sentences describing your project. If there are ==
+== any pointers, please add here as well.                ==
+===========================================================
+This program, at its highest level, is a GUI that helps students 
+identify the courses that are required for majors in Yale College 
+(Note: due to the complexity, we have only completed the Economics 
+and the Global Affairs major for this project). The GUI presents a 
+series of buttons for the courses that are required for the major, 
+and the user clicks on the courses that they have already taken 
+(and, therefore, the requirements they have already fulfilled.) 
+Once the user inputs this information and clicks the ìnextî button, 
+a new window opens that displays the courses that the user still 
+needs to take to fulfill their major requirements, along with key 
+information about each of these courses, namely: course number, 
+description, meeting times, and professor(s). This information was 
+parsed from the Yale Developers API.
+
+===========================================================
+== NOVELTY                                               ==
+==                                                       ==
+== One or a few senetences identifying novelty (not done ==
+== before or not done well before) of your project.      ==
+==                                                       ==
+== Novelty will account for 20 points.                    ==
+===========================================================
+This program takes gives the major requirements still needed for a 
+Yale major, along with some of the important course information for
+ those major requirements. While groups have made something similar 
+before, we believe that ours is innovative in the sense that it takes
+into account what the user has taken before. Information on the 
+courses a user still needs to take is also all in one place. 
+Furthermore, our program is interactive, in which users can click 
+on the courses they have taken before. 
+
+===========================================================
+== COMPLEXITY                                            ==
+==                                                       ==
+== One or a few senetences identifying complexity        ==
+== of your project. Complexity is relative to CS112.     ==
+== You should discuss what topics/programming techniques ==
+== covered by CS112 that you may need to use. If you     ==
+== need to use anything beyond covered by CS112, it is   ==
+== great to list.                                        == 
+==                                                       ==
+== Complexity will account for 20 points.                 ==
+===========================================================
+There were several components of our project that required us 
+to learn concepts that were not covered in class. We created 
+MouseListener objects to take user input in the form of clicks. 
+The interface of our program is a GUI created with javax.swing, 
+which provided a greater number of functionalities that were also 
+more complex (e.g. the use of JButtons), and so we needed to learn 
+the syntax of the javax.swing package.
+
+Within the GUI, we created buttons which the user could click, and 
+manipulated the colors of the buttons to reflect the userís clicking 
+actions. Specifically, each button was set to a default color, and 
+the color would change when the user hovered over a button and when 
+the user clicked a button. When the user unclicks a button, the color 
+returns to the ìmouse-hoveringî color until the user moves the cursor 
+away from that button. 
+
+Additionally, the information about each of the courses for the majors 
+was retrieved and parsed from the Yale Developers API. This required 
+us to learn how to use JSONArrays and JSONObjects to retrieve this 
+information from a given URL, and then translate these JSONArrays and 
+JSONObjects into strings that could be used in our GUI.
+
+===========================================================
+== EXECUTION                                             ==
+==                                                       ==
+== One or a few senetences identifying how your program  ==
+== will be used, i.e., easy and smooth to use.         ==
+==                                                       ==
+== Execution will account for 60 points.                  ==
+===========================================================
+The program takes information from a .txt file that essentially 
+places the required courses for the economics major into arrays 
+by department (i.e. all courses that could fulfill the math 
+requirement are in an array; all introductory microeconomics 
+courses; etc.). Once this .txt file is read, by running GetReqs.java 
+on Eclipse (or any other IDE), the GUI is presented to the user. 
+All other aspects of the program can be run directly on the GUI.
+Before the program is run, a .jar file for the JSON libraries 
+needs to be downloaded so that the Yale API can be accessed. 
+The .jar file is downloadable here:
+https://mvnrepository.com/artifact/org.json/json/20160810
+
+Note: We have noticed that the Yale API system crashes at times and 
+the URL returns an error. In this case, our program will not run, 
+as it needs to retrieve information from the API. Usually, after 
+waiting a couple of minutes, the program will work as expected, 
+although this is completely dependent on Yaleís system.
+
+===========================================================
+== CODE-LEVEL DESCRIPTION                                ==
+==                                                       ==
+== Please focus on both key objects and key methods.     ==
+==                                                       ==
+===========================================================
+MajorReqs.java: This class uses javax.swing to create a GUI 
+with which the user interacts when running our program. It 
+first asks the user to type in their major and the four-
+letter major code, and subsequently takes that user input 
+(via a Scanner object) to match it to the relevant courses 
+for that major. The gui() method is a key method because the 
+actual creation of the GUI takes place here. This consists 
+of creating objects called JFrames for the background, 
+JPanels for each section of the GUI, JButtons for each set 
+of courses that the user can click on to indicate that they
+have taken at least one of the courses in that set, and JLabels 
+for the text on each button. For each of the JButtons, there
+were two elements that gui() manipulated: the color of the 
+buttons depending on user click action, and a boolean to handle 
+whether or not the button had been clicked. We use MouseListener
+ objects to allow the program to track the user’s mouse actions, 
+and changed the color of each JButton depending on whether the 
+user hovered over the button and whether the button was clicked 
+(along with a default color.) gui() also creates a “next” button
+ that the user can click on to signal that they have finished 
+selecting the courses that they have already taken. Once the 
+“next” button is clicked, the guiShowReqs() method is called. 
+The guiShowReqs() method is key because it opens a new window 
+that lists the courses that the user can take in the current 
+semester to fulfill their major requirements. Again, JFrames, 
+JPanels, and JLabels were used to present this list. The 
+guiShowReqs() method also creates CreateCourses() objects, which 
+use the Yale Developers API to retrieve information about relevant 
+courses. Once the CreateCourses() objects are created, the 
+guiShowReqs() method tracks the buttons that the user had not 
+clicked in the previous window, and prints the information 
+(course title, professor, course description, and meeting time) 
+for the courses that the user can take in the current semester. 
+If the course is not offered in the current semester, the program 
+prints a statement that indicates this. Since there is a lot of 
+text that must be printed in this window, we manipulated the JFrame 
+and JPanel such that the overflowing text for each course spills 
+onto a second column of the JFrame, allowing for easy readability.
+
+- GetReqs.java: This class reads the .txt file associated for a 
+particular major and creates JSONArrays and JSONObjects for each of 
+the required courses for the major inputted by the user in the 
+MajorReqs() class. Since the Yale Developers API does not sort any 
+courses by the majors for which they are required, the creation of 
+a .txt file for each major was necessary to list all of the courses 
+that are required for that major. The method getCourses() scans 
+through that .txt file and stores each element into a JSONArray, 
+then translates the elements of that JSONArray into a String array,
+ which it returns. The method getAReq() takes an int reqNumber and a 
+String array reqClasses, and returns the course at index reqNumber 
+in the reqClasses array. This allows us to retrieve a specific course 
+from the array.
+
+-CreateCourses.java: CreateCourses is where we access the Yale 
+Developers API. To do this, we accessed the API via a URL and entered 
+a key that we retrieved with our NetID from the API website. We needed
+to download a .jar file that contained the JSON libraries such that the
+program could read through and retrieve elements from the API. 
+The method apiCall() scans through the URL that the class takes for each 
+department’s full list of classes. The method findCourse() returns a 
+specific course from within the list provided by the API. The method 
+isAvailable() checks if the course is being offered in the current semester. 
+The methods courseTitle, courseNumber, courseDescription, courseTime, 
+and courseProf return these elements for each course in the API. 
+
+- economics.txt: This file contains the information for the major 
+requirements for the Economics major, with each set of courses that 
+fulfill a requirement (e.g. all math courses that fulfill the math 
+requirement for the economics major) in an element of an array.
+
+- global affairs.txt:This file contains the information for the major 
+requirements for the Global Affairs major, with each set of courses 
+that fulfill a requirement in an element of an array.
+
+
+
+
+===========================================================
+== TEAM EFFORTS                                          ==
+==                                                       ==
+== Give an approximate number of hours spent             ==
+== brainstorming, planning and meeting for the project.  ==
+===========================================================
+26 hours
+
+===========================================================
+== TF MEETING DATE/TIME                                  ==
+==                                                       ==
+== List the date or dates that your group met with the   ==
+== TF leaders, including lengthy email exchanges.        ==
+===========================================================
+April 14 
+April 21 
+April 24
+May 6
+May 7
+May 8
+May 9
+
+
+
+

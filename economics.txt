@@ -1,0 +1,31 @@
+{
+	"economics" : [
+		[
+      "MATH112 OR ",
+      "MATH115 OR ",
+      "MATH118 OR ",
+      "MATH120",
+		],
+		[
+      "ECON108 OR ",
+      "ECON110 OR ",
+      "ECON115"
+		],
+		[
+      "ECON111 OR ",
+      "ECON116"
+		],
+		[
+      "ECON121 OR ",
+      "ECON125"
+		],
+		[
+      "ECON122 OR ",
+      "ECON126"
+		],
+		[
+      "ECON131 AND ECON132 OR ",
+      "ECON135"
+		]
+	]	
+}
