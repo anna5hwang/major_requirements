@@ -178,28 +178,5 @@ that fulfill a requirement in an element of an array.
 
 
 
-===========================================================
-== TEAM EFFORTS                                          ==
-==                                                       ==
-== Give an approximate number of hours spent             ==
-== brainstorming, planning and meeting for the project.  ==
-===========================================================
-26 hours
-
-===========================================================
-== TF MEETING DATE/TIME                                  ==
-==                                                       ==
-== List the date or dates that your group met with the   ==
-== TF leaders, including lengthy email exchanges.        ==
-===========================================================
-April 14 
-April 21 
-April 24
-May 6
-May 7
-May 8
-May 9
-
-
 
 
