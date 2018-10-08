@@ -1,22 +1,3 @@
-///////////////////////////////////////////////////////////
-//  CPSC-112 CLASS PROJECT - REPORT.txt
-//
-//  Team Member NetIDs: jyz22, bbl24, ahh37, ms3358
-//  TF Leaders: Yuxuan Ke, John Amadeo
-//
-//  Project Title: "Get Reqs": Yale College Major Requirements Helper
-//
-//  Note: Please submit the following:
-//    (1) REPORT.txt, 
-//    (2) All that is needed to compile and run your program 
-//        (a zip file of the project directory can be a good 
-//        approach), and  
-//    (3) README.txt on how to execute your program. If it is
-//      deployed on the Web, please provide a pointer. 
-//
-//    It is sufficient if one team member submits.
-///////////////////////////////////////////////////////////
-
 ===========================================================
 == HIGH-LEVEL DESCRIPTION                                ==
 ==                                                       ==
@@ -30,7 +11,7 @@ and the Global Affairs major for this project). The GUI presents a
 series of buttons for the courses that are required for the major, 
 and the user clicks on the courses that they have already taken 
 (and, therefore, the requirements they have already fulfilled.) 
-Once the user inputs this information and clicks the ìnextî button, 
+Once the user inputs this information and clicks the ‚Äúnext‚Äù button, 
 a new window opens that displays the courses that the user still 
 needs to take to fulfill their major requirements, along with key 
 information about each of these courses, namely: course number, 
@@ -75,11 +56,11 @@ more complex (e.g. the use of JButtons), and so we needed to learn
 the syntax of the javax.swing package.
 
 Within the GUI, we created buttons which the user could click, and 
-manipulated the colors of the buttons to reflect the userís clicking 
+manipulated the colors of the buttons to reflect the user‚Äôs clicking 
 actions. Specifically, each button was set to a default color, and 
 the color would change when the user hovered over a button and when 
 the user clicked a button. When the user unclicks a button, the color 
-returns to the ìmouse-hoveringî color until the user moves the cursor 
+returns to the ‚Äúmouse-hovering‚Äù color until the user moves the cursor 
 away from that button. 
 
 Additionally, the information about each of the courses for the majors 
@@ -112,7 +93,7 @@ Note: We have noticed that the Yale API system crashes at times and
 the URL returns an error. In this case, our program will not run, 
 as it needs to retrieve information from the API. Usually, after 
 waiting a couple of minutes, the program will work as expected, 
-although this is completely dependent on Yaleís system.
+although this is completely dependent on Yale‚Äôs system.
 
 ===========================================================
 == CODE-LEVEL DESCRIPTION                                ==
@@ -135,13 +116,13 @@ for the text on each button. For each of the JButtons, there
 were two elements that gui() manipulated: the color of the 
 buttons depending on user click action, and a boolean to handle 
 whether or not the button had been clicked. We use MouseListener
- objects to allow the program to track the user’s mouse actions, 
+ objects to allow the program to track the user√ïs mouse actions, 
 and changed the color of each JButton depending on whether the 
 user hovered over the button and whether the button was clicked 
-(along with a default color.) gui() also creates a “next” button
+(along with a default color.) gui() also creates a √ínext√ì button
  that the user can click on to signal that they have finished 
 selecting the courses that they have already taken. Once the 
-“next” button is clicked, the guiShowReqs() method is called. 
+√ínext√ì button is clicked, the guiShowReqs() method is called. 
 The guiShowReqs() method is key because it opens a new window 
 that lists the courses that the user can take in the current 
 semester to fulfill their major requirements. Again, JFrames, 
@@ -179,7 +160,7 @@ a key that we retrieved with our NetID from the API website. We needed
 to download a .jar file that contained the JSON libraries such that the
 program could read through and retrieve elements from the API. 
 The method apiCall() scans through the URL that the class takes for each 
-department’s full list of classes. The method findCourse() returns a 
+department√ïs full list of classes. The method findCourse() returns a 
 specific course from within the list provided by the API. The method 
 isAvailable() checks if the course is being offered in the current semester. 
 The methods courseTitle, courseNumber, courseDescription, courseTime, 
